@@ -1,0 +1,6 @@
+<launch>
+  <include file="$(find rrbot_gazebo)/launch/rrbot_world.launch" />
+<arg name="node_start_delay" default="10.0" />  
+  <node pkg="sample_load" name="sample_load" type="sample_load.py" launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
+  <node pkg="sample_control" name="sample_control" type="sample_control.py"  launch-prefix="bash -c 'sleep $(arg node_start_delay); $0 $@' " />
+</launch>
